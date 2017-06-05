@@ -1,4 +1,8 @@
 rust/target
 clojure/target
+swift/.build
+swift/Packages
 
+.DS_Store
+*.xcodeproj
 

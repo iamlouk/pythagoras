@@ -2,6 +2,7 @@ rust/target
 clojure/target
 swift/.build
 swift/Packages
+java/target
 
 .DS_Store
 *.xcodeproj

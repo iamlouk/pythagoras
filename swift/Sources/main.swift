@@ -4,7 +4,7 @@ import Cocoa
 let contentRect = CGRect(x: 0, y: 0, width: 900, height: 600)
 let window = NSWindow(contentRect: contentRect,
                       styleMask: NSTitledWindowMask,
-                      backing: NSBackingStoreType.buffered,
+                      backing: NSWindow.BackingStoreType.buffered,
                       defer: true)
 
 window.makeKeyAndOrderFront(nil)
@@ -61,7 +61,7 @@ func render() {
 }
 
 if #available(OSX 10.12, *) {
-    var timer: Timer = Timer.scheduledTimer(withTimeInterval: 1000 / (25 * 1000),
+    var _: Timer = Timer.scheduledTimer(withTimeInterval: 1000 / (25 * 1000),
                                             repeats: true,
                                             block: {_ in render() })
 

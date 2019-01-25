@@ -8,4 +8,4 @@ java/target
 *.xcodeproj
 
 *.o
-c++/prog
+c++/pyth

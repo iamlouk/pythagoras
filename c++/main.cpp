@@ -198,25 +198,31 @@ int main(int argc, const char * argv[]) {
     for (int i = 1; i < argc; i++)
         std::cout << "argv[ " << i << " ] = " << argv[i] << std::endl;
 
-    std::cout << "Hello, SDL!" << std::endl;
-
     // Make rand() Random!
     srand( (SDL_sin(time(nullptr)) + 1) * 100 );
 
     // Start SDL
     if (SDL_Init( SDL_INIT_VIDEO ) < 0) {
-        printf("SDL_Init failed: %s\n", SDL_GetError());
-        return 1;
+        std::cerr << "SDL_Init failed: " << SDL_GetError() << std::endl;
     }
 
     window = SDL_CreateWindow("C++ SDL: Ein Baum des Pythagoras!", 0, 0, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
     if (window == nullptr) {
-        printf("SDL_CreateWindow failed: %s\n", SDL_GetError());
-        return 1;
+        std::cerr << "SDL_CreateWindow failed: " << SDL_GetError() << std::endl;
+        exit(EXIT_FAILURE);
     }
 
     surface = SDL_GetWindowSurface(window);
+    if (surface == nullptr) {
+        std::cerr << "SDL_GetWindowSurface failed: " << SDL_GetError() << std::endl;
+        exit(EXIT_FAILURE);
+    }
+
     renderer = SDL_GetRenderer(window);
+    if (renderer == nullptr) {
+        std::cerr << "SDL_GetRenderer failed: " << SDL_GetError() << std::endl;
+        exit(EXIT_FAILURE);
+    }
 
     // return animateBaumDesPythagoras();
     return drawBaumDesPythagoras();

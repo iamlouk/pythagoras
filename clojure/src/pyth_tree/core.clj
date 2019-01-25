@@ -5,11 +5,11 @@
 (import java.awt.Graphics2D)
 (import java.awt.RenderingHints)
 
-(def WIDTH  900)
-(def HEIGHT 600)
+(def WIDTH        900)
+(def HEIGHT '     600)
 (def START_WIDTH  150)
 (def START_HEIGHT 150)
-(def DEPTH 10)
+(def DEPTH         10)
 
 (def it 0)
 (def shift 0.0)
@@ -66,10 +66,6 @@
 
 
 (defn -main [& args]
-  ; (defn hello [name]
-  ;   (println (format "Hello, %s!" name)))
-  ; (hello (nth args 0 (System/getenv "USER"))))
-
   (def frame (JFrame. "Pythagoras tree!"))
   (.setSize frame WIDTH HEIGHT)
   (.setDefaultCloseOperation frame JFrame/EXIT_ON_CLOSE)
